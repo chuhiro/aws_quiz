@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWSクイズ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- モード選択画面 -->
+        <div id="mode-selection" class="screen active">
+            <h1>AWS サービス名称当てクイズ</h1>
+            <h2>モードを選択してください</h2>
+            <div class="mode-options">
+                <button class="mode-btn" data-mode="b">基本版</button>
+                <button class="mode-btn" data-mode="e">拡張版</button>
+                <button class="mode-btn" data-mode="s">超拡張版</button>
+            </div>
+
+            <div class="focus-mode-toggle">
+                <label for="focus-mode">
+                    <input type="checkbox" id="focus-mode"> 集中学習モードを使用
+                </label>
+            </div>
+
+            <div id="focus-options" class="focus-options" style="display: none;">
+                <h3>集中学習設定</h3>
+                <p>過去 <input type="number" id="focus-n" min="1" max="100" value="5" style="width: 60px;"> 回中、<br>
+                正解数が <input type="number" id="focus-m" min="0" max="100" value="2" style="width: 60px;"> 回以下の<br>
+                問題だけを出題します。</p>
+            </div>
+
+            <div class="controls">
+                <button id="start-quiz" class="primary-btn">クイズ開始</button>
+                <button id="show-stats" class="secondary-btn">統計を見る</button>
+            </div>
+        </div>
+
+        <!-- クイズ画面 -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <h1 id="quiz-title">AWS サービス名称当てクイズ</h1>
+                <div class="progress">
+                    <span id="current-question">1</span> / <span id="total-questions">?</span>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div id="question-text" class="question-text">
+                    読み込み中...
+                </div>
+                <div class="input-section">
+                    <input type="text" id="answer-input" placeholder="サービス名称を入力してください" autocomplete="off">
+                    <button id="submit-answer" class="primary-btn">回答</button>
+                </div>
+                <div id="feedback" class="feedback"></div>
+            </div>
+
+            <div class="controls">
+                <button id="quit-quiz" class="secondary-btn">終了</button>
+            </div>
+        </div>
+
+        <!-- 結果画面 -->
+        <div id="result-screen" class="screen">
+            <h1>クイズ結果</h1>
+            <div class="result-stats">
+                <div class="stat-item">
+                    <span class="stat-label">総問題数:</span>
+                    <span id="result-total" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">正解数:</span>
+                    <span id="result-correct" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">正答率:</span>
+                    <span id="result-percentage" class="stat-value">0%</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="restart-quiz" class="primary-btn">もう一度挑戦</button>
+                <button id="back-to-mode" class="secondary-btn">モード選択に戻る</button>
+            </div>
+        </div>
+
+        <!-- 統計画面 -->
+        <div id="stats-screen" class="screen">
+            <h1>学習統計</h1>
+            <div id="stats-content" class="stats-content">
+                <!-- 統計データがここに表示されます -->
+            </div>
+
+            <div class="controls">
+                <button id="back-from-stats" class="secondary-btn">戻る</button>
+                <button id="clear-stats" class="danger-btn">統計をリセット</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+/* リセットとベーススタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* 画面管理 */
+.screen {
+    display: none;
+    padding: 40px;
+    min-height: 500px;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* ヘッダー */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #34495e;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: #34495e;
+    font-size: 1.2em;
+}
+
+/* モード選択画面 */
+.mode-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mode-btn {
+    padding: 20px;
+    border: 2px solid #3498db;
+    background: #ecf0f1;
+    color: #3498db;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.mode-btn:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.mode-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+/* 集中学習モード */
+.focus-mode-toggle {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.focus-mode-toggle label {
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.focus-mode-toggle input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.focus-options {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #dee2e6;
+}
+
+.focus-options p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.focus-options input[type="number"] {
+    padding: 5px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 60px;
+    text-align: center;
+}
+
+/* コントロールボタン */
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.primary-btn {
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.secondary-btn {
+    padding: 12px 30px;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(149, 165, 166, 0.4);
+}
+
+.danger-btn {
+    padding: 12px 30px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.danger-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* クイズ画面 */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.progress {
+    background: #ecf0f1;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.question-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid #e9ecef;
+}
+
+.question-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.input-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#answer-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 20px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease;
+}
+
+#answer-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.feedback {
+    min-height: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.feedback.correct {
+    color: #27ae60;
+}
+
+.feedback.incorrect {
+    color: #e74c3c;
+}
+
+/* 結果画面 */
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* 統計画面 */
+.stats-content {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 30px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* レスポンシブ対応 */
+/* タブレット・モバイル対応 */
+@media (max-width: 800px) {
+    .mode-options {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+
+/* モバイル対応 */
+@media (max-width: 800px) {
+    body {
+        padding: 5px;       /* モバイル時はpaddingをさらに減らす */
+    }
+
+    .container {
+        width: 100%;        /* 完全に画面幅いっぱいに */
+        max-width: none;    /* max-widthの制限を解除 */
+        margin: 0 auto;     /* marginを最小に */
+        padding: 15px;      /* paddingは適度に残す */
+    }
+
+    .screen {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .mode-options {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    #answer-input {
+        width: 100%;
+        min-width: auto;
+        flex: none;
+    }
+
+    .input-section button {
+        align-self: flex-start;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .question-card {
+        padding: 15px;      /* 問題カードのpaddingを減らす */
+        margin: 15px 0;     /* marginも減らす */
+    }
+
+    .question-text {
+        font-size: 1.1em;   /* フォントサイズを少し小さく */
+        margin-bottom: 20px; /* 下余白も調整 */
+    }
+
+    /* クイズ画面でのタイトルを非表示（スペース節約） */
+    #quiz-screen h1 {
+        display: none;
+    }
+
+    .quiz-header {
+        margin-bottom: 15px; /* ヘッダーmarginも調整 */
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .result-stats {
+        grid-template-columns: 1fr;
+    }
+}
